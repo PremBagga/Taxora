@@ -46,7 +46,6 @@ A comprehensive full-stack platform for SMEs, Freelancers, and Chartered Account
 - Python 3.9+
 - Node.js 18+
 - PostgreSQL 13+
-- Redis 6+
 
 ## 🚀 Quick Start
 
@@ -91,21 +90,6 @@ npm install
 # Start development server
 npm run dev
 ```
-
-### 4. Start Background Services
-```bash
-# Terminal 1 - Redis
-redis-server
-
-# Terminal 2 - Celery Worker
-cd backend
-celery -A taxora worker -l info
-
-# Terminal 3 - Celery Beat (for scheduled tasks)
-cd backend
-celery -A taxora beat -l info
-```
-
 ## 🔧 Configuration
 
 ### Environment Variables (.env)
@@ -291,16 +275,17 @@ src/
 ### Development Commands
 ```bash
 # Backend
+cd backend
+py -m venv venv
+venv/scripts/activate
 python manage.py makemigrations
 python manage.py migrate
-python manage.py collectstatic
 python manage.py runserver
 
 # Frontend
+npm install
 npm run dev          # Development server
-npm run build        # Production build
-npm run lint         # Code linting
-npm run typecheck    # TypeScript checking
+
 ```
 
 ## 🚀 Deployment
@@ -335,8 +320,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 For support and questions:
 - Create an issue on GitHub
-- Email: support@taxora.ai
-- Documentation: https://docs.taxora.ai
+- Email: prembagga04@gmail.com
+
 
 ---
 
